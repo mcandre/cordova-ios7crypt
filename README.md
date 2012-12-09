@@ -11,5 +11,4 @@
 # INSTALL FOR ANDROID
 
 	$ cd android
-	$ ant debug
-	$ adb install -r bin/IOS7Crypt-debug.apk
+	$ make install
