@@ -1,6 +1,6 @@
 module IOS7Crypt where
 
--- Allows Flag to derive Typeable and Data
+-- Allows derivating Typeable and Data
 {-# LANGUAGE ScopedTypeVariables, DeriveDataTypeable #-}
 
 import Language.Fay.FFI
