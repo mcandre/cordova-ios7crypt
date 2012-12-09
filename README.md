@@ -10,5 +10,7 @@
 
 # INSTALL FOR ANDROID
 
+(Currently failing as a result of Fay incompleteness.)
+
 	$ cd android
 	$ make install
