@@ -1,7 +1,7 @@
-module IOS7Crypt where
-
 -- Allows derivating Typeable and Data
 {-# LANGUAGE ScopedTypeVariables, DeriveDataTypeable #-}
+
+module IOS7Crypt where
 
 import Language.Fay.FFI
 import Language.Fay.Prelude
@@ -68,3 +68,26 @@ decrypt hash
 			decrypt' (Just s) p
 				| Nothing `elem` p = Nothing
 				| otherwise = Just $ ((parMap rseq) chr . zipWith xor (xlat s) . (parMap rseq) fromJust) p
+
+addEventListener :: Element -> String -> Fay () -> Bool -> Fay ()
+addEventListener = ffi "%1.addEventListener(%2, %3, %4)"
+
+getElementsByTagName :: String -> Fay [Element]
+getElementsByTagName = ffi "document.getElementsByTagName(%1)"
+
+getFirstElementByTagName :: String -> Fay Element
+getFirstElementByTagName tag = do
+	es <- getElementsByTagName tag
+	return $ head es
+
+-- setHTML :: Element -> String -> Fay ()
+-- setHTML = ffi "%1.innerHTML = %2"
+-- 
+-- refresh :: Fay ()
+-- refresh = do
+-- 	d <- getFirstElementByTagName "div"
+-- 	r <- random 100
+-- 	setHTML d $ show r
+-- 
+-- main :: Fay ()
+-- main = refresh
